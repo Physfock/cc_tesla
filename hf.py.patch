@@ -1,0 +1,20 @@
+--- /mnt/pyscf_backup/2.8.0/scf/hf.py	2026-09-15 10:04:09.765637225 +0000
++++ /usr/local/lib/python3.13/site-packages/pyscf/scf/hf.py	2025-04-22 07:17:42.000000000 +0000
+@@ -1101,7 +1101,16 @@
+     '''
+     if h1e is None: h1e = mf.get_hcore()
+     if vhf is None: vhf = mf.get_veff(mf.mol, dm)
+-    f = h1e + vhf
++#    h1e = numpy.block([[h1e, numpy.zeros_like(h1e)], [numpy.zeros_like(h1e), h1e]])
++#    f = h1e + vhf
++##################################################
++    if h1e.shape == vhf.shape:
++    	f = h1e + vhf
++    else:
++    	h1e = numpy.block([[h1e, numpy.zeros_like(h1e)],
++                          [numpy.zeros_like(h1e), h1e]])
++    	f = h1e + vhf
++###################################################
+     if cycle < 0 and diis is None:  # Not inside the SCF iteration
+         return f
+ 

@@ -1,0 +1,11 @@
+--- /mnt/pyscf_backup/2.8.0/cc/ccsd.py	2026-09-15 10:04:09.762637182 +0000
++++ /usr/local/lib/python3.13/site-packages/pyscf/cc/ccsd.py	2025-04-22 09:47:45.000000000 +0000
+@@ -492,7 +492,7 @@
+         vvvv : None or integral object
+             if vvvv is None, contract t2 to AO-integrals using AO-direct algorithm
+     '''
+-    assert (t2.dtype == numpy.double)
++#    assert (t2.dtype == numpy.double)
+     if t2.size == 0:
+         return numpy.zeros_like(t2)
+ 

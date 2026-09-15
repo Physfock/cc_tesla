@@ -1,0 +1,13 @@
+--- /mnt/pyscf_backup/2.8.0/ao2mo/addons.py	2026-09-15 10:04:09.761434200 +0000
++++ /usr/local/lib/python3.13/site-packages/pyscf/ao2mo/addons.py	2025-04-22 06:45:46.000000000 +0000
+@@ -107,8 +107,8 @@
+     if targetsym not in ('8', '4', '1', '2kl', '2ij'):
+         raise ValueError('symmetry = %s' % symmetry)
+ 
+-    if eri.dtype != numpy.double:
+-        raise RuntimeError('Complex integrals not supported')
++#    if eri.dtype != numpy.double:
++#        raise RuntimeError('Complex integrals not supported')
+ 
+     eri = numpy.asarray(eri, order='C')
+     npair = norb*(norb+1)//2

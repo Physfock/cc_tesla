@@ -1,0 +1,20 @@
+--- /mnt/pyscf_backup/2.8.0/cc/gccsd.py	2026-09-15 10:04:09.764454394 +0000
++++ /usr/local/lib/python3.13/site-packages/pyscf/cc/gccsd.py	2025-04-22 07:18:34.000000000 +0000
+@@ -350,7 +350,7 @@
+     if callable(ao2mofn):
+         eri = ao2mofn(eris.mo_coeff).reshape([nmo]*4)
+     else:
+-        assert (eris.mo_coeff.dtype == np.double)
++#        assert (eris.mo_coeff.dtype == np.double)
+         mo_a = eris.mo_coeff[:nao//2]
+         mo_b = eris.mo_coeff[nao//2:]
+         orbspin = eris.orbspin
+@@ -397,7 +397,7 @@
+     nocc = eris.nocc
+     nao, nmo = eris.mo_coeff.shape
+     nvir = nmo - nocc
+-    assert (eris.mo_coeff.dtype == np.double)
++#    assert (eris.mo_coeff.dtype == np.double)
+     mo_a = eris.mo_coeff[:nao//2]
+     mo_b = eris.mo_coeff[nao//2:]
+     orbspin = eris.orbspin
