@@ -9,7 +9,7 @@ Scripts for automated installation and build of [ChronusQ](https://github.com/xs
 
 | File | Purpose |
 |---|---|
-| `patch.sh` | Installation on a "live" system (bare-metal machine / VM). Additionally configures `~/.bashrc`: adds the built ChronusQ binary path to `PATH` and sets a custom prompt. |
+| `patch.sh` | Installation on a "live" system - Fedora 41 (bare-metal machine / VM). Additionally configures `~/.bashrc`: adds the built ChronusQ binary path to `PATH` and sets a custom prompt. |
 
 Both scripts share identical core logic: install dependencies, download and build ChronusQ, replace the specified files, install PySCF.
 
