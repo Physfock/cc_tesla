@@ -3,7 +3,7 @@ This code offers supplementary functions above the ChronusQ package and the PySC
 
 # cc_tesla — ChronusQ (beta0.8.0) deployment with custom patches
 
-Scripts for automated installation and build of [ChronusQ](https://github.com/xsligroup/chronusq_public) (`beta0.8.0` branch) on Fedora, replacing two files with modified versions hosted in this repository (`procedural.cxx`, `fock.hpp`), followed by PySCF installation.
+Scripts for automated installation and build of [ChronusQ](https://github.com/xsligroup/chronusq_public) (`beta0.8.0` branch) on Fedora, replacing two files with modified versions hosted in this repository (`procedural.cxx`, `fock.hpp` - files are modified to print ERI, OVERLAP and HCORE calculated with GIAO to hdf5 file, this elements are used then in PySCF for coupled clusters), followed by PySCF installation.
 
 ## Files
 
@@ -15,7 +15,7 @@ Both scripts share identical core logic: install dependencies, download and buil
 
 ## What the script does
 
-1. Checks that the OS is Fedora (`/etc/os-release`); exits with an error otherwise.
+1. Checks that the OS is Fedora 41 (`/etc/os-release`); exits with an error otherwise.
 2. Installs missing packages via `dnf`: `hdf5`, `eigen3`, `lapack`, `blas`, `libxc`, `gcc`/`g++`/`gfortran`, `cmake`, `xblas`, and supporting utilities (`wget`, `unzip`, `mc`, `nano`, `git`, `pip`, `locate`).
 3. Downloads the ChronusQ source (`beta0.8.0`) from [xsligroup/chronusq_public](https://github.com/xsligroup/chronusq_public).
 4. Replaces `src/cxxapi/procedural.cxx` and `include/singleslater/fock.hpp` with the modified versions hosted in this repository.
